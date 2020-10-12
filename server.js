@@ -19,7 +19,7 @@ client.on("message", async message => {
   
   const Work = new RegExp(`^<@!?${client.user.id}>( |)$`);
   if (message.content.match(Work)) {
-    message.reply(`**Total members -** \`${message.guild.memberCount}\``);
+    message.reply(`Busy`);
     
   }});
 
