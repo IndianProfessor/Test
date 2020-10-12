@@ -1,5 +1,7 @@
 const Discord = require('v11-discord.js');
-const client = new Discord.Client();
+const client = new Discord.Client({
+  disableEveryone: true
+});
 
 client.on('ready', () => {
 console.log(`Logged in as ${client.user.tag}!`);
@@ -9,9 +11,16 @@ client.user.setActivity(`with ʜყ℘г Fam`, {
 status: "idle",
 type: "Playing",
 url: "https://www.twitch.tv/discord.gg"})
-client.user.setStatus('idle')
     .then(presence => console.log(`HYPR OFFICIAL ${presence.game ? presence.game.none : 'DISCORD BOT DEVLOPER'}`))
     .catch(console.error);
 });
 
-client.login('NzY0ODc1NTI0OTEyMTg1Mzg0.X4MpNA.DocLYG_rvaPPPCyO8j0_pTu24Dk');
+client.on("message", async message => {
+  
+  const Work = new RegExp(`^<@!?${client.user.id}>( |)$`);
+  if (message.content.match(Work)) {
+    message.reply(`**Total members -** \`${message.guild.memberCount}\``);
+    
+  }});
+
+client.login("NzY0OTA0MTE1MTY3Mjk3NTQ5.X4NCoA.eqmJss3Kd01rNMaC7ZsXHucXFWw");
